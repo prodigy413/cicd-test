@@ -25,4 +25,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          context: ./image1
           tags: prodigy413/test-nginx:0.1
