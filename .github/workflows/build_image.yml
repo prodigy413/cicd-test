@@ -26,4 +26,4 @@ jobs:
         with:
           push: true
           context: ./image1
-          tags: prodigy413/test-nginx:0.1
+          tags: prodigy413/private/test-nginx:0.1
