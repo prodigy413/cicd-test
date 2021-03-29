@@ -28,5 +28,13 @@ jobs:
           context: ./image1
           tags: prodigy413/test-nginx:1.0
 
+      - name: The job has succeeded
+        if: ${{ success() }}
+        run: echo Succeeded
+
+      - name: The job has failed
+        if: ${{ failure() }}
+        run: echo Failed
+
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
