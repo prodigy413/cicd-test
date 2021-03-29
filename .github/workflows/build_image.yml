@@ -41,9 +41,6 @@ jobs:
         if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: github-actions
-          SLACK_MESSAGE: '$GITHUB_REPOSITORY Fail'
-          SLACK_TITLE: Fail
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
       - name: Image digest
