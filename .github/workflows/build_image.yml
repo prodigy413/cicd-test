@@ -30,11 +30,23 @@ jobs:
 
       - name: The job has succeeded
         if: ${{ success() }}
-        run: echo Succeeded
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: github-actions
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: 'Post Content :rocket:'
+          SLACK_TITLE: Success
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
       - name: The job has failed
         if: ${{ failure() }}
-        run: echo Failed
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: github-actions
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: 'Post Content :rocket:'
+          SLACK_TITLE: Fail
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
